@@ -18,8 +18,8 @@ declare module '@deck.gl/carto/basemap' {
 
 }
 declare module '@deck.gl/carto/layers/carto-layer' {
-	import { CompositeLayer } from '@deck.gl/core';
-	export default class CartoLayer<D, P> extends CompositeLayer<D, P> {
+	import { CompositeLayer } from '@deck.gl/carto/@deck.gl/core';
+	export default class CartoLayer extends CompositeLayer {
 	    initializeState(): void;
 	    updateState({ changeFlags }: {
 	        changeFlags: any;
@@ -39,19 +39,20 @@ declare module '@deck.gl/carto/api/maps-api-client' {
 }
 declare module '@deck.gl/carto/layers/carto-sql-layer' {
 	import CartoLayer from '@deck.gl/carto/layers/carto-layer';
-	export default class CartoSQLLayer<D, P> extends CartoLayer<D, P> {
+	export default class CartoSQLLayer extends CartoLayer {
 	    _updateTileJSON(): Promise<void>;
 	}
 
 }
 declare module '@deck.gl/carto/layers/carto-bqtiler-layer' {
 	import CartoLayer from '@deck.gl/carto/layers/carto-layer';
-	export default class CartoBQTilerLayer<D, P> extends CartoLayer<D, P> {
+	export default class CartoBQTilerLayer extends CartoLayer {
 	    _updateTileJSON(): Promise<void>;
 	}
+
 }
 declare module '@deck.gl/carto' {
-	export { getDefaultCredentials, setDefaultCredentials } from '@deck.gl/carto/auth';
+	export { getDefaultCredentials, setDefaultCredentials } from '@deck.gl/carto/auth.js';
 	export { default as CartoSQLLayer } from '@deck.gl/carto/layers/carto-sql-layer';
 	export { default as CartoBQTilerLayer } from '@deck.gl/carto/layers/carto-bqtiler-layer';
 	export { default as BASEMAP } from '@deck.gl/carto/basemap';

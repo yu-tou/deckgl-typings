@@ -1,4 +1,3 @@
-//typings for @deck.gl/arcgis v8.4.9
 declare module '@deck.gl/arcgis/commons' {
 	export function initializeResources(gl: any): void;
 	export function render({ gl, width, height, viewState }: {
@@ -20,21 +19,5 @@ declare module '@deck.gl/arcgis/deck-layer' {
 }
 declare module '@deck.gl/arcgis/deck-props' {
 	export default function loadDeckProps(Accessor: any): any;
-
-}
-declare module '@deck.gl/arcgis/deck-renderer' {
-	export interface IDeckRenderer {
-	    view: any;
-	    deck: any;
-	    setup(context: any): any;
-	    dispose(): any;
-	    redraw(): any;
-	    render(context: any): any;
-	}
-	export default function createDeckRenderer(DeckProps: any, externalRenderers: any): IDeckRenderer;
-
-}
-declare module '@deck.gl/arcgis' {
-	export function loadArcGISModules(modules: any, loadScriptOptions: any): Promise<any>;
 
 }
